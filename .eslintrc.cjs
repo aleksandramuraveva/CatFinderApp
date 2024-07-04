@@ -17,4 +17,4 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     'react-compiler/react-compiler': 'error',
   },
-}
+};
