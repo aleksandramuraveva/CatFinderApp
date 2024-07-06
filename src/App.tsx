@@ -36,16 +36,16 @@ class App extends React.Component<Record<string, never>, State> {
 
   fetchActresses = (url: string) => {
     this.setState({ loading: true });
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({ actresses: data, loading: false });
-    })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
-      this.setState({ loading: false });
-    });
-};
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ actresses: data, loading: false });
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        this.setState({ loading: false });
+      });
+  };
 
   handleSearch = (searchTerm: string) => {
     localStorage.setItem('searchTerm', searchTerm);
