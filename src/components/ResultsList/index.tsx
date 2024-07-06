@@ -2,7 +2,6 @@ import React from 'react';
 import ResultCard from './ResultCard';
 import './styles.css';
 
-
 interface Actress {
   image: string;
   name: string;
@@ -20,7 +19,7 @@ class ResultsList extends React.Component<ResultsListProps> {
 
     return (
       <section className="container results">
-        {actresses.map(actress => (
+        {actresses.map((actress) => (
           <ResultCard key={actress.name} actress={actress} />
         ))}
       </section>

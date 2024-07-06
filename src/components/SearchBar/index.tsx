@@ -1,14 +1,14 @@
 import React from 'react';
 import './styles.css';
 
-
 interface State {
   searchTerm: string;
 }
 
-
-
-class SearchBar extends React.Component<{ onSearch: (searchTerm: string) => void }, State> {
+class SearchBar extends React.Component<
+  { onSearch: (searchTerm: string) => void },
+  State
+> {
   state = {
     searchTerm: '',
   };
