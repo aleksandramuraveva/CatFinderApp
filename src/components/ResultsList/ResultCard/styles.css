@@ -22,10 +22,6 @@
 }
 
 @media (max-width: 1000px) {
-  .container {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-
   .card {
     flex-direction: column;
     margin: 10px 0;
