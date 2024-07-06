@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import ResultsList from './components/ResultsList';
 import Loader from './components/Loader';
+import ErrorButton from './components/ErrorButton';
 
 interface Actress {
   image: string;
@@ -21,6 +22,7 @@ class App extends React.Component<Record<string, never>, State> {
     actresses: [],
     searchTerm: '',
     loading: false,
+    hasError: false,
   };
 
   componentDidMount() {
@@ -51,12 +53,21 @@ class App extends React.Component<Record<string, never>, State> {
     this.fetchActresses(specificActressUrl);
   };
 
+  handleError = () => {
+    this.setState({ hasError: true });
+  };
+
   render() {
-    const { actresses, searchTerm, loading } = this.state;
+    const { actresses, searchTerm, loading, hasError } = this.state;
+    if (hasError) {
+      throw new Error('Well you crashed me!=)');
+    }
 
     return (
       <div>
+
         <SearchBar searchTerm={searchTerm} onSearch={this.handleSearch} />
+        <ErrorButton onError={this.handleError} />
         {loading ? <Loader /> : <ResultsList actresses={actresses} />}
       </div>
     );
