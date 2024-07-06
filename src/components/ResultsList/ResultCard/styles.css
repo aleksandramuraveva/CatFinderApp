@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: lavender;
+  border: 1px dashed white;
+}
+
+.content {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+
+  .card {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .content {
+    margin-inline: auto; 
+  }
+}
