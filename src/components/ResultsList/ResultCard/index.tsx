@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 
+
 interface Actress {
   image: string;
   name: string;
@@ -12,11 +13,10 @@ interface ResultCardProps {
   actress: Actress;
 }
 
-class ResultCard extends React.Component<ResultCardProps> {
-  render() {
-    const { actress } = this.props;
+const ResultCard: React.FC<ResultCardProps> = ({actress}) => {
 
-    return (
+  return (
+
       <div className="card">
         <div className="content">
           <img src={actress.image} alt="photo" />
@@ -25,8 +25,19 @@ class ResultCard extends React.Component<ResultCardProps> {
           <p>Nationality: {actress.nationality}</p>
         </div>
       </div>
+
     );
-  }
-}
+
+
+
+};
+
+
+
+
+
+
+
+
 
 export default ResultCard;
