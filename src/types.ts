@@ -1,4 +1,3 @@
-
 export interface Actress {
   image: string;
   name: string;
