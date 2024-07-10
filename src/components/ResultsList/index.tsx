@@ -13,18 +13,15 @@ interface ResultsListProps {
   actresses: Actress[];
 }
 
-class ResultsList extends React.Component<ResultsListProps> {
-  render() {
-    const { actresses } = this.props;
-
-    return (
+const ResultsList: React.FC<ResultsListProps> = ({actresses}) => {
+  return (
       <section className="container results">
         {actresses.map((actress) => (
           <ResultCard key={actress.name} actress={actress} />
         ))}
       </section>
     );
-  }
-}
+  
+};
 
 export default ResultsList;
