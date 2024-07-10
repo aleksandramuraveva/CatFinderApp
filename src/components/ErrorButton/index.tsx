@@ -1,18 +1,33 @@
 import React from 'react';
 import './styles.css';
 
-class ErrorButton extends React.Component<{ onError: () => void }> {
-  handleClick = () => {
-    this.props.onError();
+
+interface ErrorButtonProps {
+  onError: () => void;
+}
+
+
+const ErrorButton: React.FC<ErrorButtonProps> = ({onError}) => {
+
+  const handleClick = () => {
+    onError();
   };
 
-  render() {
-    return (
-      <button className="error-button" onClick={this.handleClick}>
-        Crash the app
-      </button>
+  return (
+
+
+    <button className="error-button" onClick={handleClick}>
+         Crash the app
+    </button>
+
+
     );
-  }
-}
+
+
+
+
+};
+
+
 
 export default ErrorButton;
