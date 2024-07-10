@@ -1,13 +1,6 @@
 import React from 'react';
 import './styles.css';
-
-
-interface Actress {
-  image: string;
-  name: string;
-  birth_year: number;
-  nationality: string;
-}
+import { Actress } from '../types';
 
 interface ResultCardProps {
   actress: Actress;

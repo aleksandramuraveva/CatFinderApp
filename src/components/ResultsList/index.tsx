@@ -1,13 +1,9 @@
 import React from 'react';
 import ResultCard from './ResultCard';
 import './styles.css';
+import { Actress } from '../types';
 
-interface Actress {
-  image: string;
-  name: string;
-  birth_year: number;
-  nationality: string;
-}
+
 
 interface ResultsListProps {
   actresses: Actress[];
