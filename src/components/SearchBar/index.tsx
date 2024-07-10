@@ -1,50 +1,50 @@
 import React from 'react';
+import {useState} from 'react';
 import './styles.css';
 
-interface State {
-  searchTerm: string;
+interface SearchBarProps {
+  onSearch: (searchTerm: string) => void;
 }
 
-class SearchBar extends React.Component<
-  { onSearch: (searchTerm: string) => void },
-  State
-> {
-  state = {
-    searchTerm: '',
+const SearchBar: React.FC<SearchBarProps> = ({onSearch}): JSX.Element => {
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSearch(searchTerm);
   };
 
-  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ searchTerm: event.target.value });
-  };
+  return (
 
-  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    this.props.onSearch(this.state.searchTerm);
-  };
-
-  render() {
-    const { searchTerm } = this.state;
-
-    return (
-      <section className="header">
+    <section className="header">
         <h1>Search the Actresses</h1>
 
-        <form className="search-form" onSubmit={this.handleSubmit}>
-          <input
+         <form className="search-form" onSubmit={handleSubmit}>
+           <input
             id="actress-input"
             className="search-input"
             type="text"
             placeholder="e.g., Robbie..."
             value={searchTerm}
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
           />
           <button className="search-button" type="submit">
             Search
           </button>
         </form>
       </section>
+
+
+
     );
-  }
-}
+
+
+
+};
 
 export default SearchBar;
