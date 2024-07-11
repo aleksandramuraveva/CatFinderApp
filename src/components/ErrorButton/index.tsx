@@ -5,7 +5,7 @@ interface ErrorButtonProps {
   onError: () => void;
 }
 
-const ErrorButton: React.FC<ErrorButtonProps> = ({ onError }): JSX.Element => {
+const ErrorButton: React.FC<ErrorButtonProps> = ({ onError }) => {
   const handleClick = () => {
     onError();
   };
