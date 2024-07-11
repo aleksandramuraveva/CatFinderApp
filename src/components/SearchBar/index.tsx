@@ -1,23 +1,27 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import './styles.css';
 
 interface SearchBarProps {
+  searchTerm: string;
   onSearch: (searchTerm: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState(
-    localStorage.getItem('searchTerm') || '',
-  );
+const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearch }) => {
+  const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
+
+  useEffect(() => {
+    setLocalSearchTerm(searchTerm);
+  }, [searchTerm]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setLocalSearchTerm(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSearch(searchTerm);
+    
+    onSearch(localSearchTerm);
   };
 
   return (
@@ -30,7 +34,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           className="search-input"
           type="text"
           placeholder="e.g., Robbie..."
-          value={searchTerm}
+          value={localSearchTerm}
           onChange={handleInputChange}
         />
         <button className="search-button" type="submit">

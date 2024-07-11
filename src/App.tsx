@@ -7,7 +7,7 @@ import Loader from './components/Loader';
 import ErrorButton from './components/ErrorButton';
 import { Actress } from './types';
 
-const App: React.FC<AppProps> = () => {
+const App: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
