@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import ResultsList from './components/ResultsList';
@@ -12,66 +13,65 @@ interface Actress {
   nationality: string;
 }
 
-interface State {
-  actresses: Actress[];
-  searchTerm: string;
-}
 
-class App extends React.Component<Record<string, never>, State> {
-  state = {
-    actresses: [],
-    searchTerm: '',
-    loading: true,
-    hasError: false,
-  };
 
-  componentDidMount() {
-    const searchTerm = localStorage.getItem('searchTerm') || '';
-    this.setState({ searchTerm });
-    const url = searchTerm
-      ? `https://freetestapi.com/api/v1/actresses?search=${searchTerm}`
+const App: React.FC<AppProps> = () => {
+
+  const [actresses, setActresses] = useState<Actress[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [hasError, setHasError] = useState<boolean>(false);
+
+
+
+
+  useEffect(() => {
+   const storedSearchTerm = localStorage.getItem('searchTerm') || '';
+    setSearchTerm(storedSearchTerm);
+    const url = storedSearchTerm
+      ? `https://freetestapi.com/api/v1/actresses?search=${storedSearchTerm}`
       : 'https://freetestapi.com/api/v1/actresses';
-    this.fetchActresses(url);
-  }
+    fetchActresses(url);
+  }, []);
+  
 
-  fetchActresses = (url: string) => {
-    this.setState({ loading: true });
+
+  const fetchActresses = (url: string) => {
+    setLoading(true);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ actresses: data, loading: false });
+        setActresses(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        this.setState({ loading: false });
+        setLoading(false);
       });
   };
 
-  handleSearch = (searchTerm: string) => {
-    localStorage.setItem('searchTerm', searchTerm);
-    this.setState({ searchTerm });
-    const specificActressUrl = `https://freetestapi.com/api/v1/actresses?search=${searchTerm}`;
-    this.fetchActresses(specificActressUrl);
+  const handleSearch = (newSearchTerm: string) => {
+    localStorage.setItem('searchTerm', newSearchTerm);
+    setSearchTerm(newSearchTerm);
+    const specificActressUrl = `https://freetestapi.com/api/v1/actresses?search=${newSearchTerm}`;
+    fetchActresses(specificActressUrl);
   };
 
-  handleError = () => {
-    this.setState({ hasError: true });
+  const handleError = () => {
+    setHasError(true);
   };
 
-  render() {
-    const { actresses, searchTerm, loading, hasError } = this.state;
-    if (hasError) {
-      throw new Error('Well you crashed me!=)');
-    }
+   if (hasError) {
+    throw new Error('Well you crashed me!=)');
+  }
 
     return (
       <div>
-        <SearchBar searchTerm={searchTerm} onSearch={this.handleSearch} />
-        <ErrorButton onError={this.handleError} />
+        <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
+        <ErrorButton onError={handleError} />
         {loading ? <Loader /> : <ResultsList actresses={actresses} />}
       </div>
     );
-  }
-}
+};
 
 export default App;
