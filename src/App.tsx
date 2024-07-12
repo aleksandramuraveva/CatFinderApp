@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar';
 import ResultsList from './components/ResultsList';
 import Loader from './components/Loader';
 import ErrorButton from './components/ErrorButton';
+import Pagination from './components/Pagination';
 import { Actress } from './types';
 
 const App: React.FC = () => {
@@ -12,6 +13,14 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 8;
+
+  const lastCardIndex = currentPage * cardsPerPage;
+  const firstCardIndex = lastCardIndex - cardsPerPage;
+  const currentCards = actresses.slice(firstCardIndex, lastCardIndex);
+  console.log(actresses.length);
 
   useEffect(() => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';
@@ -55,7 +64,12 @@ const App: React.FC = () => {
     <div>
       <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
       <ErrorButton onError={handleError} />
-      {loading ? <Loader /> : <ResultsList actresses={actresses} />}
+      <Pagination
+        totalCards={actresses.length}
+        cardsPerPage={cardsPerPage}
+        setCurrentPage={setCurrentPage}
+      />
+      {loading ? <Loader /> : <ResultsList actresses={currentCards} />}
     </div>
   );
 };
