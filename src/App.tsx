@@ -48,6 +48,7 @@ const App: React.FC = () => {
   const handleSearch = (newSearchTerm: string) => {
     localStorage.setItem('searchTerm', newSearchTerm);
     setSearchTerm(newSearchTerm);
+    setCurrentPage(1);
     const specificActressUrl = `https://freetestapi.com/api/v1/actresses?search=${newSearchTerm}`;
     fetchActresses(specificActressUrl);
   };
