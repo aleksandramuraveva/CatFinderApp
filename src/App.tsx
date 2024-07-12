@@ -68,6 +68,7 @@ const App: React.FC = () => {
         totalCards={actresses.length}
         cardsPerPage={cardsPerPage}
         setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
       {loading ? <Loader /> : <ResultsList actresses={currentCards} />}
     </div>
