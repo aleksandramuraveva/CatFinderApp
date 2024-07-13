@@ -6,6 +6,7 @@ import ResultsList from './components/ResultsList';
 import Loader from './components/Loader';
 import ErrorButton from './components/ErrorButton';
 import Pagination from './components/Pagination';
+import DetailedCard from './components/DetailedCard';
 import { Actress } from './types';
 
 const App: React.FC = () => {
@@ -20,7 +21,11 @@ const App: React.FC = () => {
   const lastCardIndex = currentPage * cardsPerPage;
   const firstCardIndex = lastCardIndex - cardsPerPage;
   const currentCards = actresses.slice(firstCardIndex, lastCardIndex);
-  console.log(actresses.length);
+
+  const [selectedActress, setSelectedActress] = useState<Actress | null>(null);
+  const [isDetailedInfoLoading, setIsDetailedInfoLoading] = useState(false);
+
+  // const isDetailedCardVisible = false;
 
   useEffect(() => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';
@@ -45,12 +50,32 @@ const App: React.FC = () => {
       });
   };
 
+  const fetchActressDetails = (actressId: number) => {
+    const url = `https://freetestapi.com/api/v1/actresses/${actressId}`;
+    setIsDetailedInfoLoading(true);
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setSelectedActress(data);
+        setIsDetailedInfoLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+        setIsDetailedInfoLoading(false);
+      });
+  };
+
   const handleSearch = (newSearchTerm: string) => {
     localStorage.setItem('searchTerm', newSearchTerm);
     setSearchTerm(newSearchTerm);
     setCurrentPage(1);
     const specificActressUrl = `https://freetestapi.com/api/v1/actresses?search=${newSearchTerm}`;
     fetchActresses(specificActressUrl);
+  };
+
+  const handleCardClick = (actress: Actress) => {
+    fetchActressDetails(actress.id);
   };
 
   const handleError = () => {
@@ -62,17 +87,36 @@ const App: React.FC = () => {
   }
 
   return (
-    <div>
-      <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
-      <ErrorButton onError={handleError} />
-      <Pagination
-        totalCards={actresses.length}
-        cardsPerPage={cardsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
-      {loading ? <Loader /> : <ResultsList actresses={currentCards} />}
-    </div>
+    <>
+      <main onClick={() => setSelectedActress(null)}>
+        <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
+        <ErrorButton onError={handleError} />
+        <Pagination
+          totalCards={actresses.length}
+          cardsPerPage={cardsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+        {loading ? (
+          <Loader />
+        ) : (
+          <ResultsList
+            actresses={currentCards}
+            handleCardClick={handleCardClick}
+          />
+        )}
+      </main>
+      {isDetailedInfoLoading ? (
+        <Loader />
+      ) : (
+        selectedActress && (
+          <DetailedCard
+            actress={selectedActress}
+            setSelectedActress={setSelectedActress}
+          />
+        )
+      )}
+    </>
   );
 };
 

@@ -4,11 +4,15 @@ import { Actress } from '../types';
 
 interface ResultCardProps {
   actress: Actress;
+  handleCardClick: (actress: Actress) => void;
 }
 
-const ResultCard: React.FC<ResultCardProps> = ({ actress }) => {
+const ResultCard: React.FC<ResultCardProps> = ({
+  actress,
+  handleCardClick,
+}) => {
   return (
-    <div className="card">
+    <div className="card" onClick={() => handleCardClick(actress)}>
       <div className="content">
         <img src={actress.image} alt="photo" />
         <h2>{actress.name}</h2>

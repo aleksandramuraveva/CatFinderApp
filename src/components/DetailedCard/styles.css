@@ -1,0 +1,33 @@
+.details-container {
+  /*	 flex-basis: 50%;*/
+  /* grid-column: 2;*/
+  min-width: 40vw;
+  background-color: lavender;
+}
+
+.details-card {
+  margin-top: 2rem;
+  /*border: 1px solid red;*/
+  display: block;
+}
+
+.details-content {
+  width: 100%;
+  height: auto;
+}
+
+.close-button {
+  background-color: #333;
+  background-color: #9352e6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  opacity: 80%;
+}

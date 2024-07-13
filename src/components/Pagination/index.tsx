@@ -5,14 +5,14 @@ interface PaginationProps {
   totalCards: number;
   cardsPerPage: number;
   setCurrentPage: (page: number) => void;
-  currentPage: number
+  currentPage: number;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   totalCards,
   cardsPerPage,
   setCurrentPage,
-  currentPage
+  currentPage,
 }) => {
   const pages = [];
   for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
@@ -25,10 +25,9 @@ const Pagination: React.FC<PaginationProps> = ({
         {pages.map((page, index) => {
           return (
             <button
-              className={`page-button ${page === currentPage ? "active" : ""}`}
+              className={`page-button ${page === currentPage ? 'active' : ''}`}
               key={index}
               onClick={() => setCurrentPage(page)}
-
             >
               {page}
             </button>
