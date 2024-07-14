@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import CardLoader from '../CardLoader'; // Import your Loader component
 import './styles.css';
 
 import { Actress } from '../../types';
@@ -17,18 +17,24 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
   const { id } = useParams<Params>();
   const navigate = useNavigate();
   const [actress, setActress] = useState<Actress | null>(null);
-
+  const [isLoading, setIsLoading] = useState(true); 
   useEffect(() => {
-    // Fetch the actress details based on the ID in the URL
+    setIsLoading(true); 
     fetch(`https://freetestapi.com/api/v1/actresses/${id}`)
       .then((response) => response.json())
-      .then((data) => setActress(data));
+      .then((data) => {
+        setActress(data);
+        setIsLoading(false);
+      });
   }, [id]);
 
-  if (!actress) {
-    return null; // Or a loading spinner
+  if (isLoading) {
+    return <CardLoader />; 
   }
 
+  if (!actress) {
+    return null; 
+  }
   return (
     <aside className="details-container">
       <div className="card details-card">
@@ -40,7 +46,11 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
           <p>Most Famous Movies: {actress.most_famous_movies.join(', ')}</p>
           <p>Awards: {actress.awards}</p>
           <p>Biography: {actress.biography}</p>
-          <button className="close-button" onClick={() => navigate('/')}>
+          <button className="close-button" onClick={() => {
+            const searchTerm = localStorage.getItem('searchTerm') || '';
+            const page = localStorage.getItem('currentPage') || '1';
+            navigate(`/?search=${searchTerm}&page=${page}`);
+          }}>
             Close
           </button>
         </div>

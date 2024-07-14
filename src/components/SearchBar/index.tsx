@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
 interface SearchBarProps {
@@ -8,7 +9,9 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearch }) => {
+
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLocalSearchTerm(searchTerm);
@@ -22,6 +25,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearch }) => {
     e.preventDefault();
 
     onSearch(localSearchTerm);
+    navigate(`/?search=${localSearchTerm}`);
   };
 
   return (

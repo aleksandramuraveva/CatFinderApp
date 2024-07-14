@@ -23,6 +23,10 @@
   gap: 0.8rem;
 }
 
+.result-image {
+  max-width: 70px;
+}
+
 @media (max-width: 1000px) {
   .card {
     flex-direction: column;

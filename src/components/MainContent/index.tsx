@@ -5,7 +5,7 @@ import Loader from '../Loader';
 import ErrorButton from '../ErrorButton';
 import Pagination from '../Pagination';
 import { Actress } from '../../types';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 // import '../../App.css';
 import './styles.css';
 
@@ -22,14 +22,26 @@ const MainContent: React.FC = () => {
   const firstCardIndex = lastCardIndex - cardsPerPage;
   const currentCards = actresses.slice(firstCardIndex, lastCardIndex);
 
-  useEffect(() => {
-    const storedSearchTerm = localStorage.getItem('searchTerm') || '';
-    setSearchTerm(storedSearchTerm);
-    const url = storedSearchTerm
-      ? `https://freetestapi.com/api/v1/actresses?search=${storedSearchTerm}`
-      : 'https://freetestapi.com/api/v1/actresses';
-    fetchActresses(url);
-  }, []);
+  const navigate = useNavigate();
+  // const location = useLocation();
+  const [searchParams] = useSearchParams();
+  // const urlSearchTerm = searchParams.get('search') || '';
+ 
+
+
+
+useEffect(() => {
+  const storedSearchTerm = localStorage.getItem('searchTerm') || '';
+  setSearchTerm(storedSearchTerm);
+  const url = storedSearchTerm
+    ? `https://freetestapi.com/api/v1/actresses?search=${storedSearchTerm}`
+    : 'https://freetestapi.com/api/v1/actresses';
+  fetchActresses(url);
+
+  const urlPage = parseInt(searchParams.get('page') || '1');
+  setCurrentPage(urlPage);
+}, [searchParams]);
+
 
   const fetchActresses = (url: string) => {
     setLoading(true);
@@ -51,6 +63,7 @@ const MainContent: React.FC = () => {
     setCurrentPage(1);
     const specificActressUrl = `https://freetestapi.com/api/v1/actresses?search=${newSearchTerm}`;
     fetchActresses(specificActressUrl);
+    navigate(`/?search=${newSearchTerm}`);
   };
 
   const handleError = () => {
@@ -63,7 +76,7 @@ const MainContent: React.FC = () => {
 
   return (
     <>
-      <main>
+      <main >
         <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
         {<ErrorButton onError={handleError} />}
         <Pagination
