@@ -9,7 +9,6 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearch }) => {
-
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
   const navigate = useNavigate();
 

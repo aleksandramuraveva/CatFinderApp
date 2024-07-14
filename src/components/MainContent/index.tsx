@@ -26,22 +26,18 @@ const MainContent: React.FC = () => {
   // const location = useLocation();
   const [searchParams] = useSearchParams();
   // const urlSearchTerm = searchParams.get('search') || '';
- 
 
+  useEffect(() => {
+    const storedSearchTerm = localStorage.getItem('searchTerm') || '';
+    setSearchTerm(storedSearchTerm);
+    const url = storedSearchTerm
+      ? `https://freetestapi.com/api/v1/actresses?search=${storedSearchTerm}`
+      : 'https://freetestapi.com/api/v1/actresses';
+    fetchActresses(url);
 
-
-useEffect(() => {
-  const storedSearchTerm = localStorage.getItem('searchTerm') || '';
-  setSearchTerm(storedSearchTerm);
-  const url = storedSearchTerm
-    ? `https://freetestapi.com/api/v1/actresses?search=${storedSearchTerm}`
-    : 'https://freetestapi.com/api/v1/actresses';
-  fetchActresses(url);
-
-  const urlPage = parseInt(searchParams.get('page') || '1');
-  setCurrentPage(urlPage);
-}, [searchParams]);
-
+    const urlPage = parseInt(searchParams.get('page') || '1');
+    setCurrentPage(urlPage);
+  }, [searchParams]);
 
   const fetchActresses = (url: string) => {
     setLoading(true);
@@ -76,7 +72,7 @@ useEffect(() => {
 
   return (
     <>
-      <main >
+      <main>
         <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
         {<ErrorButton onError={handleError} />}
         <Pagination

@@ -12,10 +12,13 @@ const ResultCard: React.FC<ResultCardProps> = ({
   handleCardClick,
 }) => {
   return (
-    <div className="card result-card" onClick={(e) => {
+    <div
+      className="card result-card"
+      onClick={(e) => {
         e.stopPropagation();
         handleCardClick(actress);
-      }}>
+      }}
+    >
       <div className="content">
         <img className="result-image" src={actress.image} alt="photo" />
         <h2>{actress.name}</h2>

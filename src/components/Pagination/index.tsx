@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './styles.css';
@@ -16,7 +15,6 @@ const Pagination: React.FC<PaginationProps> = ({
   setCurrentPage,
   currentPage,
 }) => {
-
   const pages = [];
   for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
     pages.push(i);
@@ -24,7 +22,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const searchTerm = searchParams.get('search') || ''
+  const searchTerm = searchParams.get('search') || '';
 
   return (
     <div className="pagination-container">
@@ -50,12 +48,6 @@ const Pagination: React.FC<PaginationProps> = ({
 };
 
 export default Pagination;
-
-
-
-
-
-
 
 // import React from 'react';
 // import { useNavigate, useSearchParams } from 'react-router-dom';

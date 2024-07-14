@@ -17,9 +17,9 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
   const { id } = useParams<Params>();
   const navigate = useNavigate();
   const [actress, setActress] = useState<Actress | null>(null);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setIsLoading(true); 
+    setIsLoading(true);
     fetch(`https://freetestapi.com/api/v1/actresses/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -29,11 +29,11 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
   }, [id]);
 
   if (isLoading) {
-    return <CardLoader />; 
+    return <CardLoader />;
   }
 
   if (!actress) {
-    return null; 
+    return null;
   }
   return (
     <aside className="details-container">
@@ -46,11 +46,14 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
           <p>Most Famous Movies: {actress.most_famous_movies.join(', ')}</p>
           <p>Awards: {actress.awards}</p>
           <p>Biography: {actress.biography}</p>
-          <button className="close-button" onClick={() => {
-            const searchTerm = localStorage.getItem('searchTerm') || '';
-            const page = localStorage.getItem('currentPage') || '1';
-            navigate(`/?search=${searchTerm}&page=${page}`);
-          }}>
+          <button
+            className="close-button"
+            onClick={() => {
+              const searchTerm = localStorage.getItem('searchTerm') || '';
+              const page = localStorage.getItem('currentPage') || '1';
+              navigate(`/?search=${searchTerm}&page=${page}`);
+            }}
+          >
             Close
           </button>
         </div>
