@@ -1,19 +1,32 @@
 .details-container {
-  /*	 flex-basis: 50%;*/
+  /*   flex-basis: 50%;*/
   /* grid-column: 2;*/
   min-width: 40vw;
   background-color: lavender;
+  border-left: 0.11rem dashed #9352e6;
 }
 
 .details-card {
-  margin-top: 2rem;
+  margin-top: 1rem;
   /*border: 1px solid red;*/
   display: block;
 }
 
 .details-content {
-  width: 100%;
+  width: 85%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.details-image {
+  max-width: 140px;
 }
 
 .close-button {

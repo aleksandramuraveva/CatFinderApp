@@ -10,15 +10,14 @@
   text-align: center;*/
 }
 
-main {
+/*main {
   width: 1000px;
-  /*  grid-column: 1;*/
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-inline: auto;
-}
+}*/
 
 body {
   background: #333;
@@ -49,7 +48,7 @@ img {
   width: 100%;
   height: 100%;
   max-width: 70px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 h1 {

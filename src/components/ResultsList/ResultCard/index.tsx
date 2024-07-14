@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { Actress } from '../types';
+import { Actress } from '../../types';
 
 interface ResultCardProps {
   actress: Actress;
@@ -12,7 +12,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
   handleCardClick,
 }) => {
   return (
-    <div className="card" onClick={() => handleCardClick(actress)}>
+    <div className="card result-card" onClick={() => handleCardClick(actress)}>
       <div className="content">
         <img src={actress.image} alt="photo" />
         <h2>{actress.name}</h2>
