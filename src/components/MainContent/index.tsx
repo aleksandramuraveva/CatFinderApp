@@ -6,7 +6,6 @@ import ErrorButton from '../ErrorButton';
 import Pagination from '../Pagination';
 import { Actress } from '../../types';
 import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
-// import '../../App.css';
 import './styles.css';
 
 const MainContent: React.FC = () => {
@@ -23,9 +22,7 @@ const MainContent: React.FC = () => {
   const currentCards = actresses.slice(firstCardIndex, lastCardIndex);
 
   const navigate = useNavigate();
-  // const location = useLocation();
   const [searchParams] = useSearchParams();
-  // const urlSearchTerm = searchParams.get('search') || '';
 
   useEffect(() => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';

@@ -13,7 +13,6 @@ const ResultsList: React.FC<ResultsListProps> = ({ actresses }) => {
 
   const handleCardClick = (actress: Actress) => {
     navigate(`/details/${actress.id}`);
-    console.log(actress);
   };
 
   return (
