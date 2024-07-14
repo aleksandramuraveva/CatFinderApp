@@ -1,6 +1,4 @@
 .details-container {
-  /*   flex-basis: 50%;*/
-  /* grid-column: 2;*/
   min-width: 40vw;
   background-color: lavender;
   border-left: 0.11rem dashed #9352e6;
@@ -8,7 +6,6 @@
 
 .details-card {
   margin-top: 1rem;
-  /*border: 1px solid red;*/
   display: block;
 }
 
