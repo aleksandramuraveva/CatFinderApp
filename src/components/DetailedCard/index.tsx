@@ -18,8 +18,6 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
   const navigate = useNavigate();
   const [actress, setActress] = useState<Actress | null>(null);
 
-
-
   useEffect(() => {
     // Fetch the actress details based on the ID in the URL
     fetch(`https://freetestapi.com/api/v1/actresses/${id}`)
@@ -31,21 +29,18 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
     return null; // Or a loading spinner
   }
 
- return (
+  return (
     <aside className="details-container">
       <div className="card details-card">
         <div className=" details-content">
           <img className="details-image" src={actress.image} alt="photo" />
           <h2>{actress.name}</h2>
-           <p>Birth Year: {actress.birth_year}</p>
+          <p>Birth Year: {actress.birth_year}</p>
           <p>Nationality: {actress.nationality}</p>
           <p>Most Famous Movies: {actress.most_famous_movies.join(', ')}</p>
           <p>Awards: {actress.awards}</p>
           <p>Biography: {actress.biography}</p>
-          <button
-            className="close-button"
-            onClick={() => navigate('/')}
-          >
+          <button className="close-button" onClick={() => navigate('/')}>
             Close
           </button>
         </div>
@@ -55,4 +50,3 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
 };
 
 export default DetailedCard;
-

@@ -5,10 +5,9 @@ import Loader from '../Loader';
 import ErrorButton from '../ErrorButton';
 import Pagination from '../Pagination';
 import { Actress } from '../../types';
-import  {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 // import '../../App.css';
 import './styles.css';
-
 
 const MainContent: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
@@ -23,9 +22,7 @@ const MainContent: React.FC = () => {
   const firstCardIndex = lastCardIndex - cardsPerPage;
   const currentCards = actresses.slice(firstCardIndex, lastCardIndex);
 
-
-
-    useEffect(() => {
+  useEffect(() => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';
     setSearchTerm(storedSearchTerm);
     const url = storedSearchTerm
@@ -48,8 +45,6 @@ const MainContent: React.FC = () => {
       });
   };
 
-  
-
   const handleSearch = (newSearchTerm: string) => {
     localStorage.setItem('searchTerm', newSearchTerm);
     setSearchTerm(newSearchTerm);
@@ -58,9 +53,7 @@ const MainContent: React.FC = () => {
     fetchActresses(specificActressUrl);
   };
 
- 
-
-    const handleError = () => {
+  const handleError = () => {
     setHasError(true);
   };
 
@@ -70,32 +63,20 @@ const MainContent: React.FC = () => {
 
   return (
     <>
-    <main>
-      <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
-      {<ErrorButton onError={handleError} />}
-      <Pagination
-        totalCards={actresses.length}
-        cardsPerPage={cardsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
-      {loading ? (
-        <Loader />
-      ) : (
-        <ResultsList
-          actresses={currentCards}
-       
+      <main>
+        <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
+        {<ErrorButton onError={handleError} />}
+        <Pagination
+          totalCards={actresses.length}
+          cardsPerPage={cardsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
         />
-      )}
-    </main>
-    <Outlet/>
+        {loading ? <Loader /> : <ResultsList actresses={currentCards} />}
+      </main>
+      <Outlet />
     </>
-
-    );
-
-
-
+  );
 };
 
 export default MainContent;
-
