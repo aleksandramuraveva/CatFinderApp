@@ -4,3 +4,10 @@
   min-height: 50vh;
   margin-inline: auto;
 }
+
+.results-message {
+	margin-top: 2.5rem;
+	text-align: center;
+	font-size: 1.7rem;
+	color: lavender;
+}

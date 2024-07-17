@@ -14,6 +14,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
   return (
     <div
       className="card result-card"
+      role="listitem"
       onClick={(e) => {
         e.stopPropagation();
         handleCardClick(actress);
