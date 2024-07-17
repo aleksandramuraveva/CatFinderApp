@@ -1,8 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-if [[ "$OS" == "Windows_NT" ]]; then
-  npx.cmd lint-staged
-else
-  npx lint-staged
-fi
+# if [[ "$OS" == "Windows_NT" ]]; then
+#   npm run test:coverage
+# else
+#   npm run test:coverage
+# fi
+

@@ -5,6 +5,7 @@ import './styles.css';
 
 import { Actress } from '../../types';
 interface Params {
+  [key: string]: string | undefined;
   id: string;
 }
 
