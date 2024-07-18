@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import CardLoader from '../CardLoader'; // Import your Loader component
+import CardLoader from '../CardLoader';
 import './styles.css';
 
 import { Actress } from '../../types';
@@ -37,7 +37,7 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
     return null;
   }
   return (
-    <aside className="details-container">
+    <aside role="aside" className="details-container">
       <div className="card details-card">
         <div className=" details-content">
           <img className="details-image" src={actress.image} alt="photo" />

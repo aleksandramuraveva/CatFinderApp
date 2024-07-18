@@ -3,7 +3,7 @@ import './styles.css';
 
 const CardLoader: React.FC = () => {
   return (
-    <div className="loader-container">
+    <div role="loader" className="loader-container">
       <span className="loader"></span>
     </div>
   );
