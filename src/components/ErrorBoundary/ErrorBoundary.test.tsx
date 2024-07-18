@@ -11,7 +11,7 @@ test('displays an error message if child component throws an error', async () =>
   render(
     <ErrorBoundary>
       <ChildComponent />
-    </ErrorBoundary>
+    </ErrorBoundary>,
   );
 
   const errorMessage = await screen.findByText('An error has occurred!');

@@ -5,24 +5,28 @@ import { BrowserRouter } from 'react-router-dom';
 import ResultCard from '.';
 import { Actress } from '../../types';
 
-const mockActress: Actress = { 
-  id: '1', 
-  name: 'Actress 1', 
-  image: 'image1.jpg', 
-  birth_year: 1980, 
-  nationality: 'American' 
+const mockActress: Actress = {
+  id: '1',
+  name: 'Actress 1',
+  image: 'image1.jpg',
+  birth_year: 1980,
+  nationality: 'American',
 };
 
 test('renders the relevant card data', () => {
   render(
     <BrowserRouter>
       <ResultCard actress={mockActress} handleCardClick={() => {}} />
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 
   const nameElement = screen.getByText(mockActress.name);
-  const birthYearElement = screen.getByText(`Birth Year: ${mockActress.birth_year}`);
-  const nationalityElement = screen.getByText(`Nationality: ${mockActress.nationality}`);
+  const birthYearElement = screen.getByText(
+    `Birth Year: ${mockActress.birth_year}`,
+  );
+  const nationalityElement = screen.getByText(
+    `Nationality: ${mockActress.nationality}`,
+  );
 
   expect(nameElement).to.exist;
   expect(birthYearElement).to.exist;
@@ -37,12 +41,11 @@ test('clicking on a card triggers the handleCardClick function', () => {
   render(
     <BrowserRouter>
       <ResultCard actress={mockActress} handleCardClick={handleCardClick} />
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 
   const cardElements = screen.getAllByRole('listitem');
-  cardElements.forEach(cardElement => {
+  cardElements.forEach((cardElement) => {
     fireEvent.click(cardElement);
   });
-
 });

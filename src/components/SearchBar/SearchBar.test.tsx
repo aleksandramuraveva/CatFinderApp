@@ -5,11 +5,13 @@ import { MemoryRouter } from 'react-router-dom';
 import SearchBar from '.';
 
 test('saves the entered value to the local storage when the Search button is clicked', async () => {
-  const onSearch = (value) => { localStorage.setItem('searchTerm', value); };
+  const onSearch = (value) => {
+    localStorage.setItem('searchTerm', value);
+  };
   const { getByPlaceholderText, getByText } = render(
     <MemoryRouter>
       <SearchBar onSearch={onSearch} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   const input = getByPlaceholderText('e.g., Robbie...');
@@ -26,14 +28,15 @@ test('saves the entered value to the local storage when the Search button is cli
 test('retrieves the value from the local storage upon mounting', () => {
   localStorage.setItem('searchTerm', 'Test Actress');
 
-  const onSearch = (value) => { localStorage.setItem('searchTerm', value); };
+  const onSearch = (value) => {
+    localStorage.setItem('searchTerm', value);
+  };
   const { getByDisplayValue } = render(
     <MemoryRouter>
       <SearchBar onSearch={onSearch} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   const input = getByDisplayValue('Test Actress');
   expect(input).not.toBeNull();
 });
-

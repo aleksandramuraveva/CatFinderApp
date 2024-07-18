@@ -18,11 +18,9 @@ test('updates URL query parameter when page changes', async () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-    </Router>
+    </Router>,
   );
 
   const page2Button = screen.getByText('2');
   fireEvent.click(page2Button);
 });
-
-

@@ -9,6 +9,8 @@ test('renders correct text', () => {
   const heading = screen.getByText('404 - Not Found');
   expect(heading).not.toBeNull();
 
-  const paragraph = screen.getByText('The page you are looking for does not exist.');
+  const paragraph = screen.getByText(
+    'The page you are looking for does not exist.',
+  );
   expect(paragraph).not.toBeNull();
 });

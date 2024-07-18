@@ -17,17 +17,17 @@ const ResultsList: React.FC<ResultsListProps> = ({ actresses }) => {
 
   return (
     <section className="container results">
- {actresses.length > 0 ? (
-      actresses.map((actress) => (
-        <ResultCard
-          key={actress.name}
-          actress={actress}
-          handleCardClick={handleCardClick}
-        />
-      ))
-    ) : (
-      <p className="results-message">No actresses found</p>
-    )}
+      {actresses.length > 0 ? (
+        actresses.map((actress) => (
+          <ResultCard
+            key={actress.name}
+            actress={actress}
+            handleCardClick={handleCardClick}
+          />
+        ))
+      ) : (
+        <p className="results-message">No actresses found</p>
+      )}
     </section>
   );
 };

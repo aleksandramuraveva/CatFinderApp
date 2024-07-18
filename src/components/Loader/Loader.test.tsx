@@ -9,4 +9,3 @@ test('renders correctly', () => {
   const loader = screen.getByRole('loader');
   expect(loader).not.toBeNull();
 });
-
