@@ -1,11 +1,30 @@
 #root {
   width: 100%;
   display: flex;
+
 }
 
+
+.light {
+  --primary: #9352e6;
+  --secondary: lavender;
+  --bg: #333;
+  --main-text: #000;
+  --other-text: #fff;
+}
+
+.dark {
+  --primary: #333;
+  --secondary: #9352e6;
+  --bg: #777;
+  --main-text: #fff;
+  --other-text: #fff;
+}
+
+
 body {
-  background: #333;
-  color: #000;
+  background: var(--bg);
+  color: var(--main-text);
   min-height: 100vh;
   margin-inline: auto;
 }
@@ -20,7 +39,7 @@ body {
   padding: 3rem;
   min-height: 45vh;
   text-align: center;
-  background-color: #9352e6;
+  background-color: var(--primary);
 }
 
 img {
@@ -37,10 +56,6 @@ h1 {
 
 h2 {
   font-weight: 600;
-}
-
-.wiki-link {
-  color: #9352e6;
 }
 
 @media (max-width: 1000px) {

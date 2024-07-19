@@ -1,7 +1,7 @@
 .details-container {
   min-width: 40vw;
-  background-color: lavender;
-  border-left: 0.11rem dashed #9352e6;
+  background-color: var(--secondary);
+  border-left: 0.11rem dashed var(--primary);
 }
 
 .details-card {
@@ -27,8 +27,8 @@
 }
 
 .close-button {
-  background-color: #333;
-  background-color: #9352e6;
+  background-color: var(--bg);
+  background-color: var(--primary);
   color: white;
   border: none;
   padding: 10px 20px;

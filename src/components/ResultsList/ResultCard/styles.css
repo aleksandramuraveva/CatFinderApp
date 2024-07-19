@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: lavender;
-  border: 1px dashed white;
+  background-color: var(--secondary);
+  border: 1px dashed var(--other-text);
 }
 
 .result-card {

@@ -6,7 +6,7 @@
 }
 
 .pagination {
-  color: #fff;
+  color: var(--other-text);
   width: 100%;
   text-align: center;
   font-size: 1rem;
@@ -18,8 +18,8 @@
 
 .page-button {
   cursor: pointer;
-  background-color: #9352e6;
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--other-text);
   border: none;
   padding: 0.7rem 1.16rem;
   font-weight: 700;
@@ -32,6 +32,6 @@
 }
 
 .page-button.active {
-  background: lavender;
-  color: #333;
+  background: var(--secondary);
+  color: var(--bg);
 }

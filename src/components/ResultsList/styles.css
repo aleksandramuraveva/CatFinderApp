@@ -1,6 +1,6 @@
 .results {
   margin-top: 1rem;
-  background-color: #333;
+  background-color: var(--bg);
   min-height: 50vh;
   margin-inline: auto;
 }
@@ -9,5 +9,5 @@
   margin-top: 2.5rem;
   text-align: center;
   font-size: 1.7rem;
-  color: lavender;
+  color: var(--secondary);
 }

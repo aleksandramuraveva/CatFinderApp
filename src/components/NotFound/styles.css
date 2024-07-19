@@ -2,6 +2,6 @@
   margin-top: 7rem;
   width: 300px;
   margin-inline: auto;
-  color: #9352e6;
+  color: var(--primary);
   text-align: left;
 }
