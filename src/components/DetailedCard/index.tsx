@@ -51,7 +51,8 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
             className="close-button"
             onClick={() => {
               const searchTerm = localStorage.getItem('searchTerm') || '';
-              const page = localStorage.getItem('currentPage') || '1';
+              const page = 1;
+              /*const page = localStorage.getItem('currentPage') || '1';*/
               navigate(`/?search=${searchTerm}&page=${page}`);
             }}
           >
