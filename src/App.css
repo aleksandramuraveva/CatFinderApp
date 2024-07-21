@@ -3,7 +3,6 @@
   display: flex;
 }
 
-
 .light {
   --primary: #9352e6;
   --secondary: lavender;
@@ -19,7 +18,6 @@
   --main-text: #fff;
   --other-text: #fff;
 }
-
 
 body {
   background: var(--bg);

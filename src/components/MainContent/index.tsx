@@ -9,8 +9,8 @@ import { Actress } from '../../types';
 import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 import './styles.css';
 
-import {useContext} from 'react';
-import { ThemeContext} from "../../contexts/themeContext.tsx";
+import { useContext } from 'react';
+import { ThemeContext } from '../../contexts/themeContext.tsx';
 
 const MainContent: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
@@ -28,8 +28,7 @@ const MainContent: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  const {theme} = useContext(ThemeContext);
-
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';
@@ -79,7 +78,7 @@ const MainContent: React.FC = () => {
       <main className={theme}>
         <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
         {<ErrorButton onError={handleError} />}
-        {<ToggleButton  />}
+        {<ToggleButton />}
         <Pagination
           totalCards={actresses.length}
           cardsPerPage={cardsPerPage}
