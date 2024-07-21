@@ -1,7 +1,12 @@
 .notfound-container {
-  margin-top: 7rem;
-  width: 300px;
-  margin-inline: auto;
-  color: var(--primary);
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--secondary);
+  color: var(--text);
   text-align: left;
+}
+
+.notfound-container h1,p {
+	margin-top: 2rem;
+	text-align: center;
 }

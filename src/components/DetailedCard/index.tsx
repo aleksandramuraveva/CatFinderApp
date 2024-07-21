@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import CardLoader from '../CardLoader';
+
+import {useContext} from 'react';
+import { ThemeContext} from "../../contexts/themeContext.tsx";
 import './styles.css';
 
 import { Actress } from '../../types';
@@ -15,10 +18,15 @@ interface DetailedCardProps {
 }
 
 const DetailedCard: React.FC<DetailedCardProps> = () => {
+
   const { id } = useParams<Params>();
   const navigate = useNavigate();
   const [actress, setActress] = useState<Actress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const {theme} = useContext(ThemeContext);
+
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`https://freetestapi.com/api/v1/actresses/${id}`)
@@ -37,7 +45,7 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
     return null;
   }
   return (
-    <aside role="aside" className="details-container">
+    <aside role="aside" className={`${theme} details-container`}>
       <div className="card details-card">
         <div className=" details-content">
           <img className="details-image" src={actress.image} alt="photo" />

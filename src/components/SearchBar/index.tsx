@@ -29,7 +29,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearch }) => {
 
   return (
     <section className="header">
-      <h1>Search the Actresses</h1>
+      <h1 className="title">Search the Actresses</h1>
 
       <form className="search-form" onSubmit={handleSubmit}>
         <input

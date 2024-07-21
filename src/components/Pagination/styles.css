@@ -24,6 +24,7 @@
   padding: 0.7rem 1.16rem;
   font-weight: 700;
   border-radius: 50%;
+  border: 0.5px dashed var(--secondary);
   transition: background-color 0.3s ease;
 }
 
