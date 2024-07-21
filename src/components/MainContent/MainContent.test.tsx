@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import MainContent from '.';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ThemeProvider } from '../../contexts/themeContext.tsx';
 
 global.fetch = vi.fn(() =>
   Promise.resolve({
@@ -13,7 +14,9 @@ global.fetch = vi.fn(() =>
 test('renders MainContent and performs search', async ({ expect }) => {
   render(
     <Router>
-      <MainContent />
+      <ThemeProvider>
+        <MainContent />
+      </ThemeProvider>
     </Router>,
   );
 

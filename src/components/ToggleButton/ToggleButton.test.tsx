@@ -1,17 +1,23 @@
-// import { render, fireEvent } from '@testing-library/react';
-// import { test, expect } from 'vitest';
-// import ErrorButton from '.';
-// import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { test, expect } from 'vitest';
+import React from 'react';
+import { ThemeContext } from '../../contexts/themeContext.tsx';
+import ToggleButton from '.';
 
-// test('calls onError prop when clicked', () => {
-//   let wasCalled = false;
-//   const onError = () => {
-//     wasCalled = true;
-//   };
-//   const { getByText } = render(<ErrorButton onError={onError} />);
+test('toggles the theme when clicked', () => {
+  let theme = 'light';
+  const toggleTheme = () => {
+    theme = theme === 'light' ? 'dark' : 'light';
+  };
 
-//   const button = getByText('Crash the app');
-//   fireEvent.click(button);
+  const { getByText } = render(
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <ToggleButton />
+    </ThemeContext.Provider>
+  );
 
-//   expect(wasCalled).toBe(true);
-// });
+  const button = getByText('light/dark');
+  fireEvent.click(button);
+
+  expect(theme).toBe('dark');
+});

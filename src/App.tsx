@@ -4,12 +4,9 @@ import DetailedCard from './components/DetailedCard';
 import MainContent from './components/MainContent';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
-// import {useContext} from 'react';
-// import { ThemeContext} from "./contexts/themeContext";
+
 
 const App: React.FC = () => {
-  // const theme = useContext(ThemeContext);
-  // console.log(theme)
   return (
     <>
       <Routes>

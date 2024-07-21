@@ -3,6 +3,7 @@ import { test, expect, vi } from 'vitest';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import DetailedCard from '.';
+import { ThemeProvider } from '../../contexts/themeContext.tsx';
 
 const mockActress: Actress = {
   id: '1',
@@ -24,7 +25,9 @@ global.fetch = vi.fn(() =>
 test('displays a loading indicator while fetching data', async () => {
   render(
     <BrowserRouter>
-      <DetailedCard />
+      <ThemeProvider>
+        <DetailedCard />
+      </ThemeProvider>
     </BrowserRouter>,
   );
 
@@ -36,7 +39,9 @@ test('displays a loading indicator while fetching data', async () => {
 test('renders the relevant card data', async () => {
   render(
     <BrowserRouter>
-      <DetailedCard actress={mockActress} setSelectedActress={() => {}} />
+      <ThemeProvider>
+        <DetailedCard actress={mockActress} setSelectedActress={() => {}} />
+      </ThemeProvider>
     </BrowserRouter>,
   );
 

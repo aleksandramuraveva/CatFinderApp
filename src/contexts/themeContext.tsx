@@ -1,16 +1,17 @@
 import { createContext, useState } from 'react';
+import React from 'react';
 
-export const ThemeContext = createContext(null);
+interface ThemeContextType {
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+}
 
-type Theme = 'light' | 'dark';
 
-// type ThemeContextType = {
-//   theme: Theme;
-//   toggleTheme: () => void;
-// };
+export const ThemeContext =  createContext<ThemeContextType | undefined>(undefined);
+
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
