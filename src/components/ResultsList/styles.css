@@ -1,5 +1,6 @@
 .results {
   margin-top: 1rem;
+  margin-bottom: 3.5rem;
   background-color: var(--bg);
   min-height: 50vh;
   margin-inline: auto;

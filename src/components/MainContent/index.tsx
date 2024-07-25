@@ -5,6 +5,7 @@ import Loader from '../Loader';
 import ErrorButton from '../ErrorButton';
 import Pagination from '../Pagination';
 import ToggleButton from '../ToggleButton';
+import Flyout from '../Flyout';
 import { Actress } from '../../types';
 import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 import './styles.css';
@@ -86,6 +87,7 @@ const MainContent: React.FC = () => {
           currentPage={currentPage}
         />
         {loading ? <Loader /> : <ResultsList actresses={currentCards} />}
+        <Flyout />
       </main>
       <Outlet />
     </>

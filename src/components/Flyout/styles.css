@@ -1,0 +1,32 @@
+.flyout-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: var(--other-text);
+  background: var(--primary);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+/*  display: none;*/
+}
+
+.selected-items-info {
+
+}
+
+.flyout-buttons {
+ display: flex;
+ gap: 1rem;
+}
+
+.unselect-all-button,
+.download-button {
+  background-color: var(--secondary);
+  color: var(--red);
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
