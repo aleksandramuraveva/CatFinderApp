@@ -6,9 +6,9 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-
-export const ThemeContext =  createContext<ThemeContextType | undefined>(undefined);
-
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined,
+);
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');

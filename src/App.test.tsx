@@ -5,7 +5,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from './contexts/themeContext.tsx';
 import App from './App';
 
-
 test('renders the correct component based on the route', async () => {
   render(
     <MemoryRouter initialEntries={['/']}>
@@ -37,4 +36,3 @@ test('renders the correct component based on the route', async () => {
 
   expect(screen.getByText('404 - Not Found')).to.exist;
 });
-

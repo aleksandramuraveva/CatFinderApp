@@ -1,7 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { test, expect } from 'vitest';
 import React, { useContext } from 'react';
-import { ThemeProvider, ThemeContext, ThemeContextType } from './themeContext.tsx';
+import {
+  ThemeProvider,
+  ThemeContext,
+  ThemeContextType,
+} from './themeContext.tsx';
 
 test('provides the correct initial theme value', () => {
   const TestComponent = () => {
@@ -16,7 +20,7 @@ test('provides the correct initial theme value', () => {
   render(
     <ThemeProvider>
       <TestComponent />
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 
   expect(screen.getByText('light')).to.exist;
@@ -39,7 +43,7 @@ test('toggles the theme value when toggleTheme is called', () => {
   render(
     <ThemeProvider>
       <TestComponent />
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 
   expect(screen.getByText('dark')).to.exist;

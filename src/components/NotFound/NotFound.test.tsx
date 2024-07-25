@@ -8,7 +8,7 @@ test('renders correct text', () => {
   render(
     <ThemeProvider>
       <NotFound />
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 
   const heading = screen.getByText('404 - Not Found');

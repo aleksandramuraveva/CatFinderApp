@@ -13,7 +13,7 @@ test('toggles the theme when clicked', () => {
   const { getByText } = render(
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <ToggleButton />
-    </ThemeContext.Provider>
+    </ThemeContext.Provider>,
   );
 
   const button = getByText('light/dark');

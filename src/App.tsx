@@ -5,7 +5,6 @@ import MainContent from './components/MainContent';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
 
-
 const App: React.FC = () => {
   return (
     <>

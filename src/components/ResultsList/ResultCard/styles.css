@@ -27,8 +27,7 @@
   max-width: 70px;
 }
 
-
-.checkbox-container input[type="checkbox"] {
+.checkbox-container input[type='checkbox'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -40,10 +39,9 @@
   cursor: pointer;
 }
 
-.checkbox-container input[type="checkbox"]:checked {
+.checkbox-container input[type='checkbox']:checked {
   background: var(--red);
 }
-
 
 @media (max-width: 1000px) {
   .card {
@@ -55,4 +53,3 @@
     margin-inline: auto;
   }
 }
-
