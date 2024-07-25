@@ -11,6 +11,11 @@ const ResultCard: React.FC<ResultCardProps> = ({
   actress,
   handleCardClick,
 }) => {
+
+  const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+  }
+
   return (
     <div
       className="card result-card"
@@ -25,6 +30,10 @@ const ResultCard: React.FC<ResultCardProps> = ({
         <h2>{actress.name}</h2>
         <p>Birth Year: {actress.birth_year}</p>
         <p>Nationality: {actress.nationality}</p>
+        <div className="checkbox-container">
+          <input type="checkbox" onClick={handleCheckboxClick}/>
+        </div>
+        
       </div>
     </div>
   );

@@ -27,6 +27,24 @@
   max-width: 70px;
 }
 
+
+.checkbox-container input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--red);
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+  background: var(--red);
+}
+
+
 @media (max-width: 1000px) {
   .card {
     flex-direction: column;
@@ -37,3 +55,4 @@
     margin-inline: auto;
   }
 }
+
