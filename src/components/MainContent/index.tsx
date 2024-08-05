@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar';
 import ResultsList from '../ResultsList';
 import Loader from '../Loader';
-import ErrorButton from '../ErrorButton';
 import Pagination from '../Pagination';
 import ToggleButton from '../ToggleButton';
 import Flyout from '../Flyout';
@@ -17,7 +16,7 @@ const MainContent: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false);
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
@@ -66,19 +65,12 @@ const MainContent: React.FC = () => {
     navigate(`/?search=${newSearchTerm}`);
   };
 
-  const handleError = () => {
-    setHasError(true);
-  };
-
-  if (hasError) {
-    throw new Error('Well you crashed me!=)');
-  }
+ 
 
   return (
     <>
       <main className={theme}>
         <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
-        {<ErrorButton onError={handleError} />}
         {<ToggleButton />}
         <Pagination
           totalCards={actresses.length}
