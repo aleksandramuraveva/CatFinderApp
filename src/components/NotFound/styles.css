@@ -1,0 +1,13 @@
+.notfound-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--secondary);
+  color: var(--text);
+  text-align: left;
+}
+
+.notfound-container h1,
+.notfound-container p {
+  margin-top: 2rem;
+  text-align: center;
+}

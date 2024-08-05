@@ -1,0 +1,43 @@
+.details-container {
+  min-width: 40vw;
+  background-color: var(--secondary);
+  border-left: 0.11rem dashed var(--primary);
+}
+
+.details-card {
+  margin-top: 1rem;
+  display: block;
+}
+
+.details-content {
+  width: 85%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.details-image {
+  max-width: 140px;
+}
+
+.close-button {
+  background-color: var(--bg);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  opacity: 80%;
+}

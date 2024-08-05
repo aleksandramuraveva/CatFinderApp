@@ -1,0 +1,12 @@
+.fallback-container {
+  margin-top: 3rem;
+  width: 400px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.fallback-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--red);
+}

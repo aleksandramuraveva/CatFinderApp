@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+if [[ "$OS" == "Windows_NT" ]]; then
+  npx.cmd run test
+else
+  npx run test
+fi
+

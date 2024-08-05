@@ -1,0 +1,38 @@
+.pagination-container {
+  max-width: 1000px;
+  width: 90%;
+  margin-inline: auto;
+  margin-top: 1rem;
+}
+
+.pagination {
+  color: var(--other-text);
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.page-button {
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--other-text);
+  border: none;
+  padding: 0.7rem 1.16rem;
+  font-weight: 700;
+  border-radius: 50%;
+  border: 0.5px dashed var(--secondary);
+  transition: background-color 0.3s ease;
+}
+
+.page-button:hover {
+  opacity: 80%;
+}
+
+.page-button.active {
+  background: var(--secondary);
+  color: var(--bg);
+}
