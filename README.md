@@ -35,7 +35,7 @@ Here are some screenshots of the application in action:
 1. Clone the repo
 
 ```sh
-  git clone https://github.com/lustrochka/Graphiql-app.git
+  git clone https://github.com/aleksandramuraveva/ActressSearchApp.git
 ```
 
 2. Install NPM packages
