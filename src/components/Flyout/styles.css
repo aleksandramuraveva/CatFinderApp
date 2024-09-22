@@ -29,3 +29,8 @@
   padding: 10px 20px;
   border-radius: 100px;
 }
+
+.unselect-all-button:hover,
+.download-button:hover {
+  opacity: 95%;
+}
