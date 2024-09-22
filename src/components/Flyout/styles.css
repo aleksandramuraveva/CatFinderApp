@@ -10,16 +10,15 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-/*  display: none;*/
+  /*  display: none;*/
 }
 
 .selected-items-info {
-
 }
 
 .flyout-buttons {
- display: flex;
- gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .unselect-all-button,

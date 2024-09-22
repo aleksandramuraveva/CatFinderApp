@@ -16,7 +16,6 @@ const MainContent: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
-  
 
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
@@ -64,8 +63,6 @@ const MainContent: React.FC = () => {
     fetchActresses(specificActressUrl);
     navigate(`/?search=${newSearchTerm}`);
   };
-
- 
 
   return (
     <>

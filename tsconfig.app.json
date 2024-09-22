@@ -24,10 +24,8 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
 
-    
     /* Module Interop */
     "esModuleInterop": true
-
   },
   "include": ["src"]
 }
