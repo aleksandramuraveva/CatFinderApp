@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { Actress } from '../../types';
+import { Actress } from '../../../types';
 
 interface ResultCardProps {
   actress: Actress;
@@ -11,7 +11,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
   actress,
   handleCardClick,
 }) => {
-  const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
     e.stopPropagation();
   };
 
