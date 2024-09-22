@@ -20,9 +20,9 @@ You can access the deployed application at: - [Actress Search App live](https://
 Here are some screenshots of the application in action:
 
 <div align="center">
-  <img src="" alt="app" width="500"/>
-  <img src="" alt="app-restclient" width="500"/>
-  <img src="" alt="app-history" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
 </div>
 
 ## Features
