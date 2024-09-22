@@ -28,7 +28,7 @@ Here are some screenshots of the application in action:
 ## Features
 - **Internationalization**: Support for multiple languages (i18n).
 - **User Interface**
-- **Testing**: Comprehensive test coverage using Jest, with more than 80% coverage.
+- **Testing**: Comprehensive test coverage using Vitest, with more than 80% coverage.
 
 ### How to run locally
 
