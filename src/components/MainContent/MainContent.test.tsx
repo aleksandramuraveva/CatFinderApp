@@ -5,10 +5,18 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '../../contexts/themeContext.tsx';
 
+// global.fetch = vi.fn(() =>
+//   Promise.resolve({
+//     json: () => Promise.resolve([{ name: 'Test Actress', id: '1' }]),
+//   }),
+// );
+
 global.fetch = vi.fn(() =>
   Promise.resolve({
+    ok: true,
+    status: 200,
     json: () => Promise.resolve([{ name: 'Test Actress', id: '1' }]),
-  }),
+  } as Response),
 );
 
 test('renders MainContent and performs search', async ({ expect }) => {
