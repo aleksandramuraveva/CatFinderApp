@@ -1,18 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Actress, SelectedItemsState } from '../types';
+
+const initialState: SelectedItemsState = {
+  items: [],
+};
 
 const selectedItemsSlice = createSlice({
   name: 'selectedItems',
-  initialState: {
-    items: [],
-  },
+  initialState,
   reducers: {
-    addItem(state, action) {
+    addItem(state: SelectedItemsState, action: PayloadAction<Actress>) {
       state.items.push(action.payload);
     },
-    removeItem(state, action) {
+    removeItem(state: SelectedItemsState, action: PayloadAction<Actress>) {
       state.items = state.items.filter((item) => item.id !== action.payload.id);
     },
-    clearItems(state) {
+    clearItems(state: SelectedItemsState) {
       state.items = [];
     },
   },

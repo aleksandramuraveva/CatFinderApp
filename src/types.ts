@@ -8,3 +8,7 @@ export interface Actress {
   awards: string;
   biography: string;
 }
+
+export interface SelectedItemsState {
+  items: Actress[];
+}
