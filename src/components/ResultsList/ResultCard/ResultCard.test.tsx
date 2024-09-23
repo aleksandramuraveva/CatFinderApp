@@ -3,14 +3,17 @@ import { test, expect } from 'vitest';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ResultCard from '.';
-import { Actress } from '../../types';
+import { Actress } from '../../../types';
 
 const mockActress: Actress = {
-  id: '1',
+  id: 1,
   name: 'Actress 1',
   image: 'image1.jpg',
   birth_year: 1980,
   nationality: 'American',
+  most_famous_movies: [],
+  awards: '',
+  biography: '',
 };
 
 test('renders the relevant card data', () => {
@@ -45,7 +48,7 @@ test('clicking on a card triggers the handleCardClick function', () => {
   );
 
   const cardElements = screen.getAllByRole('listitem');
-  cardElements.forEach((cardElement) => {
+  cardElements.forEach((cardElement: HTMLElement) => {
     fireEvent.click(cardElement);
   });
 });

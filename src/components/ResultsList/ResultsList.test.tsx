@@ -7,18 +7,24 @@ import { Actress } from '../../types';
 
 const mockActresses: Actress[] = [
   {
-    id: '1',
+    id: 1,
     name: 'Actress 1',
     image: 'image1.jpg',
     birth_year: 1980,
     nationality: 'American',
+    most_famous_movies: [],
+    awards: '',
+    biography: '',
   },
   {
-    id: '2',
+    id: 2,
     name: 'Actress 2',
     image: 'image2.jpg',
     birth_year: 1985,
     nationality: 'British',
+    most_famous_movies: [],
+    awards: '',
+    biography: '',
   },
 ];
 
