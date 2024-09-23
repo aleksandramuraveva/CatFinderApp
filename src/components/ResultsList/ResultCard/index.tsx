@@ -1,6 +1,8 @@
-import React from 'react';
 import './styles.css';
-import { Actress } from '../../types';
+import { Actress } from '../../../types';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, removeItem } from '../../../store/selectedItemsSlice';
+import { AppDispatch, RootState } from '../../../store/store';
 
 interface ResultCardProps {
   actress: Actress;
@@ -11,7 +13,23 @@ const ResultCard: React.FC<ResultCardProps> = ({
   actress,
   handleCardClick,
 }) => {
-  const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const dispatch: AppDispatch = useDispatch();
+  const selectedItems = useSelector(
+    (state: RootState) => state.selectedItems.items,
+  );
+
+  const isSelected = selectedItems.some((item) => item.id === actress.id);
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    if (isSelected) {
+      dispatch(removeItem(actress));
+    } else {
+      dispatch(addItem(actress));
+    }
+  };
+
+  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
     e.stopPropagation();
   };
 
@@ -30,7 +48,12 @@ const ResultCard: React.FC<ResultCardProps> = ({
         <p>Birth Year: {actress.birth_year}</p>
         <p>Nationality: {actress.nationality}</p>
         <div className="checkbox-container">
-          <input type="checkbox" onClick={handleCheckboxClick} />
+          <input
+            type="checkbox"
+            checked={isSelected}
+            onChange={handleCheckboxChange}
+            onClick={handleCheckboxClick}
+          />
         </div>
       </div>
     </div>
