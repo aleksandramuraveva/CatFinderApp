@@ -4,9 +4,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import DetailedCard from '.';
 import { ThemeProvider } from '../../contexts/themeContext.tsx';
+import { Actress } from '../../types';
 
 const mockActress: Actress = {
-  id: '1',
+  id: 1,
   name: 'Actress 1',
   image: 'image1.jpg',
   birth_year: 1980,
@@ -16,17 +17,25 @@ const mockActress: Actress = {
   biography: 'Biography 1',
 };
 
+// global.fetch = vi.fn(() =>
+//   Promise.resolve({
+//     json: () => Promise.resolve(mockActress),
+//   }),
+// );
+
 global.fetch = vi.fn(() =>
   Promise.resolve({
+    ok: true,
+    status: 200,
     json: () => Promise.resolve(mockActress),
-  }),
+  } as Response),
 );
 
 test('displays a loading indicator while fetching data', async () => {
   render(
     <BrowserRouter>
       <ThemeProvider>
-        <DetailedCard />
+        <DetailedCard actress={mockActress} setSelectedActress={() => {}} />
       </ThemeProvider>
     </BrowserRouter>,
   );
