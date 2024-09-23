@@ -4,7 +4,7 @@ This project allows users to search for actresses by making requests to an API. 
 
 ## Deployment
 
-You can access the deployed application at: - [Actress Search App live](https://deploy)
+You can access the deployed application at: - [Actress Search App live](https://searchactress-am.web.app/?search=&page=5)
 
 ## Stack
 
