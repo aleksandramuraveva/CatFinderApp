@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar';
 import ResultsList from '../ResultsList';
 import Loader from '../Loader';
@@ -11,6 +11,9 @@ import './styles.css';
 
 import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/themeContext.tsx';
+
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 const MainContent: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
@@ -28,6 +31,10 @@ const MainContent: React.FC = () => {
   const [searchParams] = useSearchParams();
 
   const { theme } = useContext(ThemeContext);
+
+  const selectedItems = useSelector(
+    (state: RootState) => state.selectedItems.items,
+  );
 
   useEffect(() => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';
@@ -76,7 +83,7 @@ const MainContent: React.FC = () => {
           currentPage={currentPage}
         />
         {loading ? <Loader /> : <ResultsList actresses={currentCards} />}
-        <Flyout />
+        {selectedItems.length > 0 && <Flyout />}
       </main>
       <Outlet />
     </>

@@ -1,20 +1,27 @@
-import React from 'react';
 import './styles.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearItems } from '../../store/selectedItemsSlice';
+import { AppDispatch, RootState } from '../../store/store';
 
-// interface FlyoutProps {
+const Flyout: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const selectedItems = useSelector(
+    (state: RootState) => state.selectedItems.items,
+  );
 
-// }
-
-const Flyout: React.FC /*<>*/ = () => {
-  // let selectedItems = ["Margo", "Anna"];
+  const handleUnselectAll = () => {
+    dispatch(clearItems());
+  };
 
   return (
     <div className="flyout-container">
       <div className="selected-items-info">
-        <p>3 actresses are selected</p>
+        <p>{selectedItems.length} actresses are selected</p>
       </div>
       <div className="flyout-buttons">
-        <button className="unselect-all-button">Unselect all</button>
+        <button className="unselect-all-button" onClick={handleUnselectAll}>
+          Unselect all
+        </button>
         <button className="download-button">Download</button>
       </div>
     </div>
