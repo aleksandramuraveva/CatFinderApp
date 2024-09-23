@@ -1,11 +1,9 @@
 import React from 'react';
-import { useContext } from 'react';
-import { ThemeContext } from '../../contexts/themeContext.tsx';
-import './styles.css';
+import useThemeContext from '../../hooks/useThemeContext';
 import './styles.css';
 
 const ToggleButton: React.FC = () => {
-  const { toggleTheme } = useContext(ThemeContext);
+  const { toggleTheme } = useThemeContext();
 
   return (
     <button className="toggle-button" onClick={toggleTheme}>

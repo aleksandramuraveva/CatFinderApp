@@ -1,10 +1,9 @@
 import React from 'react';
 import './styles.css';
-import { useContext } from 'react';
-import { ThemeContext } from '../../contexts/themeContext.tsx';
+import useThemeContext from '../../hooks/useThemeContext';
 
 const NotFound = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useThemeContext();
 
   return (
     <div className={`${theme} notfound-container`}>

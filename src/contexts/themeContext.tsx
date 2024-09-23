@@ -1,7 +1,7 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, ReactNode } from 'react';
 import React from 'react';
 
-interface ThemeContextType {
+export interface ThemeContextType {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
 }
@@ -10,7 +10,11 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
   undefined,
 );
 
-export const ThemeProvider = ({ children }) => {
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = () => {

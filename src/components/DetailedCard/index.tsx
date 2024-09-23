@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import CardLoader from '../CardLoader';
 
-import { useContext } from 'react';
-import { ThemeContext } from '../../contexts/themeContext.tsx';
+import useThemeContext from '../../hooks/useThemeContext';
 import './styles.css';
 
 import { Actress } from '../../types';
@@ -23,7 +22,7 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
   const [actress, setActress] = useState<Actress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useThemeContext();
 
   useEffect(() => {
     setIsLoading(true);
