@@ -3,17 +3,17 @@ import { useParams, useNavigate } from 'react-router-dom';
 import CardLoader from '../CardLoader';
 
 import useThemeContext from '../../hooks/useThemeContext';
+import { Actress } from '../../types';
 import './styles.css';
 
-import { Actress } from '../../types';
 interface Params {
   [key: string]: string | undefined;
   id: string;
 }
 
 interface DetailedCardProps {
-  actress: Actress;
-  setSelectedActress: (actress: Actress | null) => void;
+  actress?: Actress;
+  setSelectedActress?: (actress: Actress | null) => void;
 }
 
 const DetailedCard: React.FC<DetailedCardProps> = () => {
