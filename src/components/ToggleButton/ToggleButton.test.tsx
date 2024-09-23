@@ -1,11 +1,11 @@
 import { render, fireEvent } from '@testing-library/react';
 import { test, expect } from 'vitest';
 import React from 'react';
-import { ThemeContext } from '../../contexts/themeContext.tsx';
+import { ThemeContext } from '../../contexts/themeContext';
 import ToggleButton from '.';
 
 test('toggles the theme when clicked', () => {
-  let theme = 'light';
+  let theme: 'light' | 'dark' = 'light';
   const toggleTheme = () => {
     theme = theme === 'light' ? 'dark' : 'light';
   };
