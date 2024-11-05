@@ -24,7 +24,8 @@
 }
 
 .result-image {
-  max-width: 70px;
+  max-width: 120px;
+
 }
 
 .checkbox-container input[type='checkbox'] {
