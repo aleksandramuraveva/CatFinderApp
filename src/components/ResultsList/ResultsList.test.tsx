@@ -50,7 +50,6 @@ const mockActresses: Actress[] = [
   },
 ];
 
-
 test('renders the specified number of cards', async () => {
   render(
     <BrowserRouter>

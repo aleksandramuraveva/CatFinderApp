@@ -27,7 +27,6 @@ const mockActress: Actress = {
   other_pets_friendly: 4,
 };
 
-
 test('renders the relevant card data', () => {
   render(
     <BrowserRouter>
@@ -36,13 +35,8 @@ test('renders the relevant card data', () => {
   );
 
   const nameElement = screen.getByText(mockActress.name);
-  const originElement = screen.getByText(
-    `Origin: ${mockActress.origin}`,
-  );
-  const lengthElement = screen.getByText(
-    `Length: ${mockActress.length}`,
-  );
-
+  const originElement = screen.getByText(`Origin: ${mockActress.origin}`);
+  const lengthElement = screen.getByText(`Length: ${mockActress.length}`);
 
   expect(nameElement).to.exist;
   expect(originElement).to.exist;

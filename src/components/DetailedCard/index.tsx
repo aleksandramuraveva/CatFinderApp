@@ -26,7 +26,6 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
 
   const apiKey = import.meta.env.VITE_API_KEY;
 
-
   useEffect(() => {
     setIsLoading(true);
     fetch(`https://api.api-ninjas.com/v1/cats?name=${name}`, {

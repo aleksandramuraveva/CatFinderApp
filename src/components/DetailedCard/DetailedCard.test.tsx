@@ -28,7 +28,6 @@ const mockActress: Actress = {
   other_pets_friendly: 4,
 };
 
-
 // global.fetch = vi.fn(() =>
 //   Promise.resolve({
 //     json: () => Promise.resolve(mockActress),
@@ -67,13 +66,8 @@ test('renders the relevant card data', async () => {
   );
 
   const nameElement = screen.findByText(mockActress.name);
-const originElement = screen.findByText(
-  `Origin: ${mockActress.origin}`,
-);
-const lengthElement = screen.findByText(
-  `Length: ${mockActress.length}`,
-);
-
+  const originElement = screen.findByText(`Origin: ${mockActress.origin}`);
+  const lengthElement = screen.findByText(`Length: ${mockActress.length}`);
 
   expect(nameElement).to.exist;
   expect(originElement).to.exist;
