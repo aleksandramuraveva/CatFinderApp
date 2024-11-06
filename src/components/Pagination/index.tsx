@@ -35,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({
               onClick={() => {
                 setCurrentPage(page);
                 localStorage.setItem('currentPage', page.toString());
-                navigate(`/?search=${searchTerm}&page=${page}`);
+                navigate(`/?name=${searchTerm}&page=${page}`);
               }}
             >
               {page}
