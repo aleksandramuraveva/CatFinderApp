@@ -17,13 +17,14 @@ You can access the deployed application at: - [Cat Finder App live](https://catf
 
 ## Screenshots
 
+
 Here are some screenshots of the application in action:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/bfd10ff0-1cc2-43fe-ad9a-46e9c2969579" alt="" width="700" />
+  <img src="https://github.com/user-attachments/assets/e77daf32-5ad4-41aa-9357-028e42c5b418" alt="" width="700" />
   <br>
   <br>
-  <img src="https://github.com/user-attachments/assets/c63a570c-a699-4b6b-8010-ec1d15deec62" alt="" width="700"/>
+  <img src="https://github.com/user-attachments/assets/29334478-db11-4672-b108-ea838120e0d1" alt="" width="700"/>
   <img src="" alt="" width="500"/>
 </div>
 
