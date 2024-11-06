@@ -48,7 +48,7 @@ Here are some screenshots of the application in action:
 1. Clone the repo
 
 ```sh
-  git clone https://github.com/aleksandramuraveva/ActressSearchApp.git
+  git clone https://github.com/aleksandramuraveva/CatFinderApp.git
 ```
 
 2. Install NPM packages
