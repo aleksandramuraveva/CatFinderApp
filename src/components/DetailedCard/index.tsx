@@ -26,7 +26,14 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://api.api-ninjas.com/v1/cats?name=${name}`, { method: 'GET', headers: { 'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg' }, contentType: 'application/json',})
+    fetch(`https://api.api-ninjas.com/v1/cats?name=${name}`, { 
+  method: 'GET', 
+  headers: { 
+    'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg', 
+    'Content-Type': 'application/json'
+      }
+    })
+
       .then((response) => response.json())
       .then((data) => {
       if (Array.isArray(data) && data.length > 0) 
