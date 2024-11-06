@@ -39,8 +39,8 @@ const MainContent: React.FC = () => {
     const storedSearchTerm = localStorage.getItem('searchTerm') || '';
     setSearchTerm(storedSearchTerm);
     const url = storedSearchTerm
-      ? `https://freetestapi.com/api/v1/actresses?search=${storedSearchTerm}`
-      : 'https://freetestapi.com/api/v1/actresses';
+      ? `https://api.api-ninjas.com/v1/cats?name=${storedSearchTerm}`
+      : 'https://api.api-ninjas.com/v1/cats?min_weight=0.5';
     fetchActresses(url);
 
     const urlPage = parseInt(searchParams.get('page') || '1');
@@ -49,7 +49,13 @@ const MainContent: React.FC = () => {
 
   const fetchActresses = (url: string) => {
     setLoading(true);
-    fetch(url)
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg',
+        'Content-Type': 'application/json',
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         setActresses(data);
@@ -62,12 +68,19 @@ const MainContent: React.FC = () => {
   };
 
   const handleSearch = (newSearchTerm: string) => {
-    localStorage.setItem('searchTerm', newSearchTerm);
-    setSearchTerm(newSearchTerm);
+    const trimmedSearchTerm = newSearchTerm.trim();
+    const searchTermToUse = trimmedSearchTerm ? `name=${trimmedSearchTerm}` : 'min_weight=0.5';
+
+    localStorage.setItem('searchTerm', trimmedSearchTerm);
+    setSearchTerm(trimmedSearchTerm);
     setCurrentPage(1);
-    const specificActressUrl = `https://freetestapi.com/api/v1/actresses?search=${newSearchTerm}`;
+
+    const specificActressUrl = trimmedSearchTerm
+      ? `https://api.api-ninjas.com/v1/cats?${searchTermToUse}`
+      : 'https://api.api-ninjas.com/v1/cats?min_weight=0.5';
+
     fetchActresses(specificActressUrl);
-    navigate(`/?search=${newSearchTerm}`);
+    navigate(`/?${searchTermToUse}`);
   };
 
   return (

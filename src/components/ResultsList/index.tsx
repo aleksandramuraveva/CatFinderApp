@@ -12,7 +12,7 @@ const ResultsList: React.FC<ResultsListProps> = ({ actresses }) => {
   const navigate = useNavigate();
 
   const handleCardClick = (actress: Actress) => {
-    navigate(`/details/${actress.id}`);
+    navigate(`/details/${actress.name}`);
   };
 
   return (
@@ -26,7 +26,7 @@ const ResultsList: React.FC<ResultsListProps> = ({ actresses }) => {
           />
         ))
       ) : (
-        <p className="results-message">No actresses found</p>
+        <p className="results-message">No cats found</p>
       )}
     </section>
   );

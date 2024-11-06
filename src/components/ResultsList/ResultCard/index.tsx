@@ -18,7 +18,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
     (state: RootState) => state.selectedItems.items,
   );
 
-  const isSelected = selectedItems.some((item) => item.id === actress.id);
+  const isSelected = selectedItems.some((item) => item.name === actress.name);
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.stopPropagation();
@@ -43,10 +43,9 @@ const ResultCard: React.FC<ResultCardProps> = ({
       }}
     >
       <div className="content">
-        <img className="result-image" src={actress.image} alt="photo" />
+        <img className="result-image" src={actress.image_link} alt="photo" />
         <h2>{actress.name}</h2>
-        <p>Birth Year: {actress.birth_year}</p>
-        <p>Nationality: {actress.nationality}</p>
+        <p>Origin: {actress.origin}</p>
         <div className="checkbox-container">
           <input
             type="checkbox"

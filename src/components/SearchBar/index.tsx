@@ -23,19 +23,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearch }) => {
     e.preventDefault();
 
     onSearch(localSearchTerm);
-    navigate(`/?search=${localSearchTerm}`);
+    navigate(`/?name=${localSearchTerm}`);
   };
 
   return (
     <section className="header">
-      <h1 className="title">Search the Actresses</h1>
+      <h1 className="title">Search the Cats</h1>
 
       <form className="search-form" onSubmit={handleSubmit}>
         <input
           id="actress-input"
           className="search-input"
           type="text"
-          placeholder="e.g., Robbie..."
+          placeholder="e.g., British Shorthair..."
           value={localSearchTerm}
           onChange={handleInputChange}
         />
