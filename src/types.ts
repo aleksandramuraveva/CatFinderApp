@@ -23,4 +23,3 @@ export interface Actress {
 export interface SelectedItemsState {
   items: Actress[];
 }
-

@@ -69,7 +69,9 @@ const MainContent: React.FC = () => {
 
   const handleSearch = (newSearchTerm: string) => {
     const trimmedSearchTerm = newSearchTerm.trim();
-    const searchTermToUse = trimmedSearchTerm ? `name=${trimmedSearchTerm}` : 'min_weight=0.5';
+    const searchTermToUse = trimmedSearchTerm
+      ? `name=${trimmedSearchTerm}`
+      : 'min_weight=0.5';
 
     localStorage.setItem('searchTerm', trimmedSearchTerm);
     setSearchTerm(trimmedSearchTerm);

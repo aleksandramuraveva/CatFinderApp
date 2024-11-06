@@ -26,21 +26,21 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://api.api-ninjas.com/v1/cats?name=${name}`, { 
-  method: 'GET', 
-  headers: { 
-    'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg', 
-    'Content-Type': 'application/json'
-      }
+    fetch(`https://api.api-ninjas.com/v1/cats?name=${name}`, {
+      method: 'GET',
+      headers: {
+        'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg',
+        'Content-Type': 'application/json',
+      },
     })
-
       .then((response) => response.json())
       .then((data) => {
-      if (Array.isArray(data) && data.length > 0) 
-      { 
-        setActress(data[0]); 
-      } else { setActress(null); } 
-      setIsLoading(false);
+        if (Array.isArray(data) && data.length > 0) {
+          setActress(data[0]);
+        } else {
+          setActress(null);
+        }
+        setIsLoading(false);
       });
   }, [name]);
 
@@ -55,21 +55,30 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
     <aside role="aside" className={`${theme} details-container`}>
       <div className="card details-card">
         <div className=" details-content">
-          <img className="details-image" src={actress.image_link} alt="actress.name" />
+          <img
+            className="details-image"
+            src={actress.image_link}
+            alt="actress.name"
+          />
           <h2>{actress.name}</h2>
-          <p>Origin: {actress.origin}</p> 
-          <p>Length: {actress.length}</p> 
-          <p>Weight: {actress.min_weight} - {actress.max_weight} lbs</p>
-          <p>Life Expectancy: {actress.min_life_expectancy} - {actress.max_life_expectancy} years</p>
-          <p>Family Friendly: {actress.family_friendly}</p> 
-          <p>Shedding: {actress.shedding}</p> 
-          <p>General Health: {actress.general_health}</p> 
-          <p>Playfulness: {actress.playfulness}</p> 
-          <p>Meowing: {actress.meowing}</p> 
-          <p>Children Friendly: {actress.children_friendly}</p> 
-          <p>Stranger Friendly: {actress.stranger_friendly}</p> 
-          <p>Grooming: {actress.grooming}</p> 
-          <p>Intelligence: {actress.intelligence}</p> 
+          <p>Origin: {actress.origin}</p>
+          <p>Length: {actress.length}</p>
+          <p>
+            Weight: {actress.min_weight} - {actress.max_weight} lbs
+          </p>
+          <p>
+            Life Expectancy: {actress.min_life_expectancy} -{' '}
+            {actress.max_life_expectancy} years
+          </p>
+          <p>Family Friendly: {actress.family_friendly}</p>
+          <p>Shedding: {actress.shedding}</p>
+          <p>General Health: {actress.general_health}</p>
+          <p>Playfulness: {actress.playfulness}</p>
+          <p>Meowing: {actress.meowing}</p>
+          <p>Children Friendly: {actress.children_friendly}</p>
+          <p>Stranger Friendly: {actress.stranger_friendly}</p>
+          <p>Grooming: {actress.grooming}</p>
+          <p>Intelligence: {actress.intelligence}</p>
           <p>Other Pets Friendly: {actress.other_pets_friendly}</p>
           <button
             className="close-button"
