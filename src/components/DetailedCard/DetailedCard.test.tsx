@@ -8,14 +8,26 @@ import { Actress } from '../../types';
 
 const mockActress: Actress = {
   id: 1,
-  name: 'Actress 1',
-  image: 'image1.jpg',
-  birth_year: 1980,
-  nationality: 'American',
-  most_famous_movies: ['Movie 1', 'Movie 2'],
-  awards: 'Award 1',
-  biography: 'Biography 1',
+  name: 'cat 1',
+  image_link: 'image1.jpg',
+  origin: 'American',
+  length: 'Medium',
+  min_weight: 8,
+  max_weight: 15,
+  min_life_expectancy: 12,
+  max_life_expectancy: 15,
+  family_friendly: 5,
+  shedding: 3,
+  general_health: 4,
+  playfulness: 5,
+  meowing: 2,
+  children_friendly: 4,
+  stranger_friendly: 3,
+  grooming: 2,
+  intelligence: 4,
+  other_pets_friendly: 4,
 };
+
 
 // global.fetch = vi.fn(() =>
 //   Promise.resolve({
@@ -55,14 +67,15 @@ test('renders the relevant card data', async () => {
   );
 
   const nameElement = screen.findByText(mockActress.name);
-  const birthYearElement = screen.findByText(
-    `Birth Year: ${mockActress.birth_year}`,
-  );
-  const nationalityElement = screen.findByText(
-    `Nationality: ${mockActress.nationality}`,
-  );
+const originElement = screen.findByText(
+  `Origin: ${mockActress.origin}`,
+);
+const lengthElement = screen.findByText(
+  `Length: ${mockActress.length}`,
+);
+
 
   expect(nameElement).to.exist;
-  expect(birthYearElement).to.exist;
-  expect(nationalityElement).to.exist;
+  expect(originElement).to.exist;
+  expect(lengthElement).to.exist;
 });
