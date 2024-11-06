@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "searchactress-am"
-  }
+    "default": "catfinder-am",
+    "catfinder": "catfinder-am"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
