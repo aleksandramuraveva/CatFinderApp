@@ -1,7 +1,7 @@
 import { Actress } from '../types';
 
 export const headers = [
-  { label: 'Name', key: 'name' },
+     { label: 'Name', key: 'name' },
   { label: 'Origin', key: 'origin' },
   { label: 'Length', key: 'length' },
   { label: 'Weight', key: 'weight' },

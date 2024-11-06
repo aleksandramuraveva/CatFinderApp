@@ -29,3 +29,6 @@ coverage
 
 # Firebase cache
 .firebase/hosting.ZGlzdA.cache
+
+# Environment variables
+.env
