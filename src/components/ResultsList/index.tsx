@@ -9,7 +9,7 @@ interface ResultsListProps {
 }
 
 const ResultsList: React.FC<ResultsListProps> = ({ actresses }) => {
-        const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleCardClick = (actress: Actress) => {
     navigate(`/details/${actress.name}`);
