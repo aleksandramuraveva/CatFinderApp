@@ -24,12 +24,15 @@ const DetailedCard: React.FC<DetailedCardProps> = () => {
 
   const { theme } = useThemeContext();
 
+  const apiKey = import.meta.env.VITE_API_KEY;
+
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`https://api.api-ninjas.com/v1/cats?name=${name}`, {
       method: 'GET',
       headers: {
-        'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg',
+        'X-Api-Key': apiKey,
         'Content-Type': 'application/json',
       },
     })

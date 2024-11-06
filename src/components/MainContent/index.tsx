@@ -14,6 +14,8 @@ import useThemeContext from '../../hooks/useThemeContext';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 const MainContent: React.FC = () => {
   const [actresses, setActresses] = useState<Actress[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -52,7 +54,7 @@ const MainContent: React.FC = () => {
     fetch(url, {
       method: 'GET',
       headers: {
-        'X-Api-Key': 'JSSLOMBdpaJAfMpVv9K4ig==iEThBS4b0oeievyg',
+        'X-Api-Key': apiKey,
         'Content-Type': 'application/json',
       },
     })
