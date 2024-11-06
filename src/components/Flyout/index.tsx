@@ -16,12 +16,12 @@ const Flyout: React.FC = () => {
   };
 
   const csvData = generateCsvData(selectedItems);
-  const filename = `${selectedItems.length}_actresses.csv`;
+  const filename = `${selectedItems.length}_cats.csv`;
 
   return (
     <div className="flyout-container">
       <div className="selected-items-info">
-        <p>{selectedItems.length} actresses are selected</p>
+        <p>{selectedItems.length} cats are selected</p>
       </div>
       <div className="flyout-buttons">
         <button className="unselect-all-button" onClick={handleUnselectAll}>
